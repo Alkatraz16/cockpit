@@ -1,15 +1,30 @@
 [gd_scene format=3 uid="uid://b55yl8grvgela"]
 
-[ext_resource type="SpriteFrames" path="res://a" id="1_fbifi"]
+[ext_resource type="Texture2D" uid="uid://ojhpk74q6bqi" path="res://assets/dem-chiks.png" id="1_fbifi"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d2soj"]
+atlas = ExtResource("1_fbifi")
+region = Rect2(32, 32, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_yqjtg"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_d2soj")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_hnnho"]
 radius = 4.0
 
-[node name="CharacterBody2D" type="CharacterBody2D" unique_id=460291919]
+[node name="Fighter" type="CharacterBody2D" unique_id=460291919]
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1306085506]
 position = Vector2(0, -8)
-sprite_frames = ExtResource("1_fbifi")
+sprite_frames = SubResource("SpriteFrames_yqjtg")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1785863898]
 position = Vector2(0, -5)
