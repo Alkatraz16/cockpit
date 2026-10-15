@@ -19,15 +19,16 @@ animations = [{
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_hnnho"]
-radius = 4.0
+radius = 7.0
 
 [node name="Fighter" type="CharacterBody2D" unique_id=460291919]
 script = ExtResource("1_d2soj")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1306085506]
-position = Vector2(0, -8)
+position = Vector2(0, -16)
+scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_yqjtg")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1785863898]
-position = Vector2(0, -5)
+position = Vector2(0, -9)
 shape = SubResource("CircleShape2D_hnnho")
