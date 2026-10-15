@@ -1,5 +1,6 @@
 [gd_scene format=3 uid="uid://b55yl8grvgela"]
 
+[ext_resource type="Script" uid="uid://dxq0aow5s3qli" path="res://scripts/Fighters.cs" id="1_d2soj"]
 [ext_resource type="Texture2D" uid="uid://ojhpk74q6bqi" path="res://assets/dem-chiks.png" id="1_fbifi"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_d2soj"]
@@ -21,6 +22,7 @@ animations = [{
 radius = 4.0
 
 [node name="Fighter" type="CharacterBody2D" unique_id=460291919]
+script = ExtResource("1_d2soj")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1306085506]
 position = Vector2(0, -8)
