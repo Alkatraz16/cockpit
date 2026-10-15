@@ -1,10 +1,16 @@
 [gd_scene format=3 uid="uid://yicge48108e0"]
 
 [ext_resource type="PackedScene" uid="uid://b55yl8grvgela" path="res://scenes/fighters.tscn" id="1_uwrxv"]
+[ext_resource type="Texture2D" uid="uid://b5rp8v23uwht" path="res://assets/background.png" id="2_yqjtg"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_1438b"]
 
 [node name="Game" type="Node2D" unique_id=229146293]
+
+[node name="Background" type="Sprite2D" parent="." unique_id=2013801293]
+position = Vector2(318.11115, 182.87502)
+scale = Vector2(0.33726856, 0.33726856)
+texture = ExtResource("2_yqjtg")
 
 [node name="Floor" type="StaticBody2D" parent="." unique_id=439591632]
 
