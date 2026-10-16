@@ -14,7 +14,7 @@ public partial class Fighters : CharacterBody2D {
 
 	private AnimatedSprite2D animatedSprite;
 	private Area2D attackHitbox;
-	private Sprite2D hitboxVisual;
+	private ColorRect hitboxVisual;
 	
 	private bool isAttacking = false;
 	private float hitboxOffsetX;
@@ -25,7 +25,7 @@ public partial class Fighters : CharacterBody2D {
 		animatedSprite = GetNode<AnimatedSprite2D>("AnimatedSprite2D");
 		attackHitbox = GetNode<Area2D>("AttackHitbox");
 		hitboxOffsetX = Mathf.Abs(attackHitbox.Position.X);
-		hitboxVisual = attackHitbox.GetNode<Sprite2D>("HitboxVisual");
+		hitboxVisual = attackHitbox.GetNode<ColorRect>("HitboxVisual");
 
 		attackHitbox.Monitoring = false;
 		attackHitbox.AreaEntered += OnHitboxAreaEntered;

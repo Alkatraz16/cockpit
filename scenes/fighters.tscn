@@ -57,9 +57,6 @@ radius = 7.0
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hnnho"]
 size = Vector2(21.25, 20)
 
-[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_hnnho"]
-size = Vector2(20, 18)
-
 [node name="Fighter" type="CharacterBody2D" unique_id=460291919]
 script = ExtResource("1_d2soj")
 
@@ -78,9 +75,18 @@ shape = SubResource("CircleShape2D_hnnho")
 [node name="AttackHitbox" type="Area2D" parent="." unique_id=1993799062]
 position = Vector2(30, -10)
 
+[node name="HitboxVisual" type="ColorRect" parent="AttackHitbox" unique_id=379813399]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -10.0
+offset_top = -10.0
+offset_right = 10.0
+offset_bottom = 10.0
+grow_horizontal = 2
+grow_vertical = 2
+
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AttackHitbox" unique_id=38610296]
 shape = SubResource("RectangleShape2D_hnnho")
-
-[node name="HitboxVisual" type="Sprite2D" parent="AttackHitbox" unique_id=1542656446]
-scale = Vector2(1.0500001, 1.1111112)
-texture = SubResource("PlaceholderTexture2D_hnnho")
