@@ -124,6 +124,8 @@ public partial class Fighters : CharacterBody2D {
 	}
 
 	private void SetFacing(bool right) {
+		if (isAttacking) return;
+		
 		facingRight = right;
 		animatedSprite.FlipH = !right;
 
