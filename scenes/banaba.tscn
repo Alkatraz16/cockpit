@@ -8,6 +8,14 @@
 atlas = ExtResource("2_m7p1d")
 region = Rect2(0, 0, 64, 64)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_m7p1d"]
+atlas = ExtResource("2_m7p1d")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_iv7gr"]
+atlas = ExtResource("2_m7p1d")
+region = Rect2(0, 0, 64, 64)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_kyjrd"]
 atlas = ExtResource("2_kyjrd")
 region = Rect2(0, 0, 64, 64)
@@ -15,12 +23,18 @@ region = Rect2(0, 0, 64, 64)
 [sub_resource type="SpriteFrames" id="SpriteFrames_47mej"]
 animations = [{
 "frames": [{
-"duration": 1.0,
+"duration": 2.0,
 "texture": SubResource("AtlasTexture_jko6h")
+}, {
+"duration": 2.0,
+"texture": SubResource("AtlasTexture_m7p1d")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_iv7gr")
 }],
 "loop": 0,
 "name": &"attack",
-"speed": 5.0
+"speed": 30.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -39,10 +53,14 @@ height = 54.0
 
 [node name="AnimatedSprite2D" parent="." index="0" unique_id=1306085506]
 sprite_frames = SubResource("SpriteFrames_47mej")
+animation = &"attack"
 
 [node name="CollisionShape2D" parent="." index="1" unique_id=1785863898]
 position = Vector2(0, 36)
 shape = SubResource("CapsuleShape2D_hnnho")
 
-[node name="CollisionShape2D" parent="AttackHitbox" parent_id_path=PackedInt32Array(1993799062) index="0" unique_id=38610296]
+[node name="AttackHitbox" parent="." index="2" unique_id=1993799062]
 position = Vector2(0, 24)
+
+[node name="CollisionShape2D" parent="AttackHitbox" index="0" unique_id=38610296]
+position = Vector2(0, 0)

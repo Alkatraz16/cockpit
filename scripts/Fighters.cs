@@ -40,7 +40,7 @@ public partial class Fighters : CharacterBody2D {
 	private static readonly Dictionary<AttackType, AttackData> Attacks = new() {
 		// Neutral Attack (jab): startup 2, active 2, recovery 4 = 8 frames
 		{ AttackType.GroundNeutral,
-		  new AttackData("attack", new Vector2(16, 14), new Vector2(14, 0), 2, 3, 4, 1.0f) },
+		  new AttackData("attack", new Vector2(24, 14), new Vector2(75, 12), 2, 3, 4, 1.0f) },
 	};
 
 	private AnimatedSprite2D animatedSprite;
