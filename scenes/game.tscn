@@ -3,6 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://b55yl8grvgela" path="res://scenes/fighters.tscn" id="1_uwrxv"]
 [ext_resource type="Texture2D" uid="uid://b5rp8v23uwht" path="res://assets/background.png" id="2_yqjtg"]
 [ext_resource type="PackedScene" uid="uid://bx0rabgl85mr8" path="res://scenes/banaba.tscn" id="3_lnu2h"]
+[ext_resource type="PackedScene" uid="uid://brh4hevj733uw" path="res://scenes/joloano.tscn" id="4_lbhrr"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_1438b"]
 
@@ -24,3 +25,6 @@ position = Vector2(320, 289)
 
 [node name="Banaba" parent="." unique_id=1319761722 instance=ExtResource("3_lnu2h")]
 position = Vector2(192, 244)
+
+[node name="Joloano" parent="." unique_id=48072279 instance=ExtResource("4_lbhrr")]
+position = Vector2(428, 243)

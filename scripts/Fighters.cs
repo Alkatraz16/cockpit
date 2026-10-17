@@ -13,6 +13,8 @@ public partial class Fighters : CharacterBody2D {
 	public const float AttackDecelMultiplier = 0.25f;
 	private const float AttackBufferTime = 0.15f;
 
+	[Export] public int PlayerId = 1;
+
 	// ---------- Attack data (numbers come from the frame data workbook) ----------
 
 	private enum AttackType {
@@ -54,8 +56,14 @@ public partial class Fighters : CharacterBody2D {
 	private bool facingRight = true;
 	private float attackBufferTimer = 0f;
 	private AttackData currentAttack = Attacks[AttackType.GroundNeutral];
+	private StringName moveLeft, moveRight, jumpKey, attackKey;
 	
 	public override void _Ready() {
+		moveLeft = $"p{PlayerId}_move_left";
+		moveRight = $"p{PlayerId}_move_right";
+		jumpKey = $"p{PlayerId}_jump";
+		attackKey = $"p{PlayerId}_attack";
+
 		animatedSprite = GetNode<AnimatedSprite2D>("AnimatedSprite2D");
 		attackHitbox = GetNode<Area2D>("AttackHitbox");
 		hitboxShape = attackHitbox.GetNode<CollisionShape2D>("CollisionShape2D");
@@ -88,7 +96,7 @@ public partial class Fighters : CharacterBody2D {
 		Velocity = velocity;
 
 		// Attack
-		if (Input.IsActionJustPressed("attack") && !isAttacking) {
+		if (Input.IsActionJustPressed(attackKey) && !isAttacking) {
 			attackBufferTimer = AttackBufferTime;
 		}
 		attackBufferTimer -= (float)delta;
@@ -103,7 +111,7 @@ public partial class Fighters : CharacterBody2D {
 		Jump();
 
 		// Horizontal movement
-		float direction = Input.GetAxis("move_left", "move_right");
+		float direction = Input.GetAxis(moveLeft, moveRight);
 		Vector2 dir = new Vector2(direction, 0);
 
 		Walk(dir, (float)delta);
@@ -131,10 +139,10 @@ public partial class Fighters : CharacterBody2D {
 	}
 
 	private void Jump() {
-		if (Input.IsActionJustPressed("jump") && IsOnFloor()) {
+		if (Input.IsActionJustPressed(jumpKey) && IsOnFloor()) {
 			Velocity = new Vector2(Velocity.X, JumpVelocity);
 		}
-		if (Input.IsActionJustReleased("jump") && Velocity.Y < 0) {
+		if (Input.IsActionJustReleased(jumpKey) && Velocity.Y < 0) {
 			Velocity = new Vector2(Velocity.X, Velocity.Y * JumpCutMultiplier);
 		}
 	}
@@ -145,7 +153,7 @@ public partial class Fighters : CharacterBody2D {
 	}
 
 	private void StartAttack() {
-		float direction = Input.GetAxis("move_left", "move_right");
+		float direction = Input.GetAxis(moveLeft, moveRight);
 		currentAttack = Attacks[ChooseAttack()];
 		
 		SetFacing(direction != 0 ? direction > 0 : facingRight);
